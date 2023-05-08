@@ -30,23 +30,30 @@ linkSobre.addEventListener("click", () => {
 
 
 /*Para as Habilidades*/
-
 const porcentagens = [85, 75, 40, 35];
 
 const barrasDeProgresso = document.querySelectorAll('.progress-bar');
 
-for (let i = 0; i < barrasDeProgresso.length; i++) {
-  let largura = 0;
-  const porcentagem = porcentagens[i];
-  const intervalo = setInterval(() => {
-    if (largura >= porcentagem) {
-      clearInterval(intervalo);
-    } else {
-      largura++;
-      barrasDeProgresso[i].style.width = largura + '%';
+const observador = new IntersectionObserver((entradas) => {
+  if (entradas[0].boundingClientRect.top < window.innerHeight) {
+    for (let i = 0; i < barrasDeProgresso.length; i++) {
+      let largura = 0;
+      const porcentagem = porcentagens[i];
+      const intervalo = setInterval(() => {
+        if (largura >= porcentagem) {
+          clearInterval(intervalo);
+        } else {
+          largura++;
+          barrasDeProgresso[i].style.width = largura + '%';
+        }
+      }, 10);
     }
-  }, 10);
-}
+  }
+});
+
+const footer = document.querySelector('footer');
+observador.observe(footer);
+
 
 
 
