@@ -258,7 +258,6 @@ footer {
     
     .navbar {
         display: flex;
-        position: absolute;
         top: 15px;
         left: 0;
         right: 30px;
@@ -319,12 +318,18 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50px;
-        height: 50px;
+        height: 150px;
         font-size: 10em;
         margin: auto;
-        padding-top: 150px;
-
+        padding: 8px;
+    }
+    .telasmenores i:hover {
+        background: #0ef;
+        color: #1f242d;
+        box-shadow: 0 0 20px #0ef;
+        border-radius: 10px;
+        transform: scale(1.5);
+        transition: 0.5s;
     }    
 }
 
